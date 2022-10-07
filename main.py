@@ -11,7 +11,7 @@ from wtforms.validators import DataRequired
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SCRET_KEY_APP_FLASK')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY_APP_FLASK')
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
