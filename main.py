@@ -20,16 +20,19 @@ Bootstrap(app)
 # CREATE DATABASE
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 # Optional: But it will silence the deprecation warning in the console.
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
 
 # migracion a PosgreSQL Heroku
-
 uri = os.getenv("DATABASE_URL")  # or other relevant config var
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
+
+#usar para productivo
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
+
+db = SQLAlchemy(app)
 
 # CREATE TABLE
 class Colgado(db.Model):
