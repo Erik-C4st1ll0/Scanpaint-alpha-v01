@@ -101,4 +101,4 @@ Werkzeug==2.2.2
 WTForms==3.0.1
 XlsxWriter==3.0.3
 zipp==3.8.1
-tiene menú contextual
+
