@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+                <h1>Rates Actuales</h1>
+
+                        {% if rates == []: %}
+                        <p>No hay Rates.</p>
+                        {% endif %}
+
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <th>Crew_Size</th>
+                                <th>Standard_Production_Rate</th>
+                                <th>WorkCenter_Key</th>
+                                <th>Sort_Order</th>
+                                <th>Note</th>
+                                <th>Workcenter_Code</th>
+                                <th>Setup_Time</th>
+                                <th>Target_Rate</th>
+                                <th>Ideal_Rate</th>
+                                <th>Cycle_Time</th>
+                            </thead>
+                            <tbody>
+                                {% for rate in rates %}
+
+                                <tr>
+
+                                <td>{{ rate["Crew_size"] }}</td>
+                                <td>{{ rate["Standard_Production_Rate"] }}</td>
+                                <td>{{ rate["WorkCenter_Key"] }}</td>
+                                <td>{{ rate["Sort_Order"] }}</td>
+                                <td>{{ rate["Note"] }}</td>
+                                <td>{{ rate["Workcenter_Code"] }}</td>
+                                <td>{{ rate["Setup_Time"] }}</td>
+                                <td>{{ rate["Target_Rate"] }}</td>
+                                <td>{{ rate["Ideal_Rate"] }}</td>
+                                <td>{{ rate["Cycle_Time"] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+
+
+{% endblock %}
