@@ -8,9 +8,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField
 from wtforms.validators import DataRequired
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.getenv('SCRET_KEY_APP_FLASK')
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
@@ -118,10 +119,10 @@ def delete():
 # --------------------funcionalidad para traer rates de produccion de PLEX------------
 @app.route("/rates_actuales")
 def get_rate():
-    ds_endpoint = "https://scanpaintmx1.on.plex.com/api/datasources/4494/execute"
+    ds_endpoint = os.getenv("URL_API_PLEX")
 
     headers = {
-        "Authorization": "Basic U2NhbnBhaW50TVhXczFAcGxleC5jb206ODJhNDgxOS05YTkzLTQ=",
+        "Authorization": os.getenv("Authorization_API_PLEX"),
         "Content-Type": "application/json;charset=utf-8",
         "Accept": "application/json",
         "Accept-Encoding": "application/gzip",
